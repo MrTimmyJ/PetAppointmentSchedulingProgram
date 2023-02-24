@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="PetAppointments.forms.LoginPage">
+
+    <children>
+        <Label layoutX="15.0" layoutY="15.0" prefHeight="690.0" prefWidth="1250.0" style="-fx-border-color: black; -fx-padding: 15; -fx-border-radius: 10;" />
+        <Label fx:id="loginLabel" layoutX="595.0" layoutY="60.0" style="-fx-font-weight: bold; -fx-font-size: 35px;" text="Login"/>
+
+        <TextField fx:id="loginScreenUsername" layoutX="565.0" layoutY="160.0" />
+        <Label fx:id="usernameField" layoutX="605.0" layoutY="190.0" style="-fx-font-weight: bold; -fx-font-size: 15px;" text="Username" />
+
+        <PasswordField fx:id="loginScreenPassword" layoutX="565.0" layoutY="240.0" />
+        <Label fx:id="passwordField" layoutX="605.0" layoutY="270.0" style="-fx-font-weight: bold; -fx-font-size: 15px;" text="Password" />
+
+        <Button fx:id="loginButton" layoutX="578.0" layoutY="380.0" mnemonicParsing="false" onAction="#clickToLogin" text="Login" />
+        <Button fx:id="cancelButtonField" layoutX="657.0" layoutY="380.0" mnemonicParsing="false" onAction="#closeApp" text="Exit" />
+    </children>
+
+</AnchorPane>

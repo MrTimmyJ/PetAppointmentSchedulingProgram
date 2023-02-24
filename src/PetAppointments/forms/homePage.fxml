@@ -1,0 +1,314 @@
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.text.Font?>
+<TabPane tabClosingPolicy="UNAVAILABLE" prefHeight="720.0" prefWidth="1280.0" xmlns:fx="http://javafx.com/fxml"
+         xmlns="http://javafx.com/javafx/" fx:controller="PetAppointments.forms.HomePage">
+
+    <Tab onSelectionChanged="#appointmentTab" text="Appointments">
+        <AnchorPane minHeight="0.0" minWidth="0.0">
+            <Label layoutX="38.0" layoutY="22.5" prefHeight="25.0" prefWidth="250.0" text="Appointments">
+                <font>
+                    <Font size="25.0"/>
+                </font>
+            </Label>
+
+            <ComboBox fx:id="monthCombo" onAction="#monthCombo" layoutX="750.0" layoutY="25.0" prefWidth="100.0"
+                      promptText="Months">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="All Months"/>
+                        <String fx:value="January"/>
+                        <String fx:value="February"/>
+                        <String fx:value="March"/>
+                        <String fx:value="April"/>
+                        <String fx:value="May"/>
+                        <String fx:value="June"/>
+                        <String fx:value="July"/>
+                        <String fx:value="August"/>
+                        <String fx:value="September"/>
+                        <String fx:value="October"/>
+                        <String fx:value="November"/>
+                        <String fx:value="December"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+            <TableView fx:id="appointmentTable" layoutX="32.0" layoutY="60.0" prefHeight="500.0" prefWidth="869.0">
+                <placeholder>
+                    <Label fx:id="appointmentTableText" text="Click Add Appointment!"/>
+                </placeholder>
+                <columns>
+                    <TableColumn fx:id="appointmentID" maxWidth="32" text="ID"/>
+                    <TableColumn fx:id="petID" maxWidth="32" text="Pet"/>
+                    <TableColumn fx:id="groomerID" minWidth="64" text="Groomer"/>
+                    <TableColumn fx:id="serviceTypeID" minWidth="64" text="Service Type"/>
+                    <TableColumn fx:id="appointmentDescription" minWidth="64" text="Desc"/>
+                    <TableColumn fx:id="appointmentStart" minWidth="125" text="Start Time"/>
+                    <TableColumn fx:id="appointmentEnd" minWidth="124" text="End Time"/>
+                    <TableColumn fx:id="serviceCost" minWidth="64" text="Service Cost"/>
+                    <TableColumn fx:id="serviceLocation" minWidth="64" text="Service Location"/>
+                    <TableColumn fx:id="appointmentStatus" minWidth="64" text="Status"/>
+                </columns>
+            </TableView>
+
+            <!-- Service Type / Cost / PetID / GroomerID FROM Service Type and Groomer Tables-->
+            <Label layoutX="960.0" layoutY="98.0" text="Appointment ID"/>
+            <Label layoutX="1230.0" layoutY="98.0" text="(Num)"/>
+            <TextField fx:id="updateAppointmentID" layoutX="1065.0" layoutY="100.0"/>
+
+            <Label layoutX="1012.0" layoutY="128.0" text="Pet ID"/>
+            <Label layoutX="1230.0" layoutY="128.0" text="(Num)"/>
+            <TextField fx:id="updatePetID" layoutX="1065.0" layoutY="130.0"/>
+
+            <Label layoutX="982.0" layoutY="158.0" text="Groomer ID"/>
+            <Label layoutX="1230.0" layoutY="158.0" text="(Num)"/>
+            <TextField fx:id="updateGroomerID" layoutX="1065.0" layoutY="160.0"/>
+
+            <Label layoutX="910.0" layoutY="188.0" text="Appointment Description"/>
+            <Label layoutX="1230.0" layoutY="188.0" text="(Text)"/>
+            <TextField fx:id="updateAppointmentDescription" layoutX="1065.0" layoutY="190.0" prefWidth="160.0"/>
+
+            <Label layoutX="981.0" layoutY="218.0" text="Service Cost"/>
+            <Label layoutX="1225.0" layoutY="218.0" text="(Decimal)"/>
+            <TextField fx:id="updateServiceCost" layoutX="1065.0" layoutY="220.0"/>
+
+            <Label layoutX="958.0" layoutY="248.0" text="Service Location"/>
+            <Label layoutX="1230.0" layoutY="248.0" text="(Text)"/>
+            <TextField fx:id="updateServiceLocation" layoutX="1065.0" layoutY="250.0" prefWidth="160.0"/>
+
+            <Label layoutX="939.0" layoutY="278.0" text="Appointment Status"/>
+            <Label layoutX="1219.0" layoutY="278.0" text="(true-false)"/>
+            <TextField fx:id="updateAppointmentStatus" layoutX="1065.0" layoutY="280.0"/>
+
+            <Label layoutX="978.0" layoutY="308.0" text="Service Type"/>
+            <Label layoutX="1030.0" layoutY="338.0" text="1 = shampoo | 2 = nails | 3 = trim"/>
+            <TextField fx:id="updateServiceTypeID" layoutX="1065.0" layoutY="310.0"/>
+
+            <Label layoutX="919.0" layoutY="386.0" text="Appointment Start Date"/>
+            <DatePicker fx:id="updateAppointmentStartDate" layoutX="1063.0" layoutY="380.0" prefHeight="26.0"
+                        prefWidth="131.0"/>
+
+            <Label layoutX="990.0" layoutY="415.0" text="Start Time"/>
+            <ComboBox fx:id="updateAppointmentStartTime" layoutX="1063.0" layoutY="410.0" prefHeight="26.0"
+                      prefWidth="131.0"/>
+
+            <Label layoutX="921.0" layoutY="443.0" text="Appointment End Date"/>
+            <DatePicker fx:id="updateAppointmentEndDate" layoutX="1063.0" layoutY="440.0" prefHeight="26.0"
+                        prefWidth="131.0"/>
+
+            <Label layoutX="994.0" layoutY="470.0" text="End Time"/>
+            <ComboBox fx:id="updateAppointmentEndTime" layoutX="1063.0" layoutY="470.0" prefHeight="26.0"
+                      prefWidth="131.0"/>
+
+            <Button fx:id="showAppointment" layoutX="769.0" layoutY="585.0" mnemonicParsing="false"
+                    onAction="#showAppointment" text="Show Appointment"/>
+            <Button fx:id="updateAppointment" layoutX="760.0" layoutY="615.0" mnemonicParsing="false"
+                    onAction="#updateAppointment" text="Update Appointment"/>
+            <Button fx:id="hideAppointment" layoutX="815.0" layoutY="645.0" mnemonicParsing="false"
+                    onAction="#hideAppointment" text="Clear Form"/>
+            <Button fx:id="newAppointment" layoutX="46.0" layoutY="585.0" mnemonicParsing="false"
+                    onAction="#newAppointment" text="Add Appointment"/>
+            <Button fx:id="removeAppointment" layoutX="46.0" layoutY="615.0" mnemonicParsing="false"
+                    onAction="#removeAppointment" text="Delete Appointment"/>
+        </AnchorPane>
+    </Tab>
+    <Tab onSelectionChanged="#petTab" text="Pet Records">
+        <AnchorPane minHeight="0.0" minWidth="0.0">
+            <Label layoutX="38.0" layoutY="22.5" prefHeight="25.0" prefWidth="250.0" text="Pet Records">
+                <font>
+                    <Font size="25.0"/>
+                </font>
+            </Label>
+
+            <Label layoutX="457.0" layoutY="28.5" text="Search Pet"/>
+            <TextField fx:id="searchPetField" layoutX="535.0" layoutY="25.0" promptText="Keywords..."/>
+
+            <TableView fx:id="petRecordsTable" layoutX="32.0" layoutY="60.0" prefHeight="225.0" prefWidth="692.0">
+                <placeholder>
+                    <Label fx:id="petTableText" text="Click Add Pet Record!"/>
+                </placeholder>
+                <columns>
+                    <TableColumn fx:id="pet_ID" prefWidth="70.0" text="Pet ID"/>
+                    <TableColumn fx:id="petTypeID" prefWidth="80.0" text="Pet Type ID"/>
+                    <TableColumn fx:id="petName" prefWidth="110.0" text="Pet Name"/>
+                    <TableColumn fx:id="ownerName" prefWidth="110.0" text="Owner Name"/>
+                    <TableColumn fx:id="petAddressID" prefWidth="150.0" text="Pet Address ID"/>
+                    <TableColumn fx:id="petBirthdate" prefWidth="90.0" text="Pet Birthdate"/>
+                    <TableColumn fx:id="petStatus" prefWidth="80.0" text="Pet Status"/>
+                </columns>
+            </TableView>
+            <Label layoutX="38.0" layoutY="300.0" prefHeight="25.0" prefWidth="250.0" text="Address Book">
+                <font>
+                    <Font size="25.0"/>
+                </font>
+            </Label>
+            <TableView fx:id="petAddressTable" layoutX="32.0" layoutY="335.0" prefHeight="225.0" prefWidth="622.0">
+                <placeholder>
+                    <Label fx:id="petAddressText" text="Click New Address!"/>
+                </placeholder>
+                <columns>
+                    <TableColumn fx:id="addressID" prefWidth="70.0" text="Address ID"/>
+                    <TableColumn fx:id="addressLineOne" prefWidth="150.0" text="Address Line One"/>
+                    <TableColumn fx:id="addressLineTwo" prefWidth="110.0" text="Address Line Two"/>
+                    <TableColumn fx:id="cityID" prefWidth="70.0" text="City ID"/>
+                    <TableColumn fx:id="postalCode" prefWidth="110.0" text="Postal Code"/>
+                    <TableColumn fx:id="phone" prefWidth="110.0" text="Phone Number"/>
+                </columns>
+            </TableView>
+
+            <!-- Service Type / Cost / PetID / GroomerID FROM Service Type and Groomer Tables-->
+            <Label layoutX="800.0" layoutY="85.0" text="Pet ID"/>
+            <Label layoutX="1050.0" layoutY="85.0" text="(Num)"/>
+            <TextField fx:id="updatePet_ID" layoutX="855.0" layoutY="85.0"/>
+
+            <Label layoutX="770.0" layoutY="115.0" text="Pet Type ID"/>
+            <Label layoutX="1050.0" layoutY="115.0" text="(Num)"/>
+            <TextField fx:id="updatePetTypeID" layoutX="855.0" layoutY="115.0"/>
+
+            <Label layoutX="778.0" layoutY="145.0" text="Pet Name"/>
+            <Label layoutX="1050.0" layoutY="145.0" text="(Text)"/>
+            <TextField fx:id="updatePetName" layoutX="855.0" layoutY="145.0"/>
+
+            <Label layoutX="761.0" layoutY="175.0" text="Owner Name"/>
+            <Label layoutX="1050.0" layoutY="175.0" text="(Text)"/>
+            <TextField fx:id="updateOwnerName" layoutX="855.0" layoutY="175.0"/>
+
+            <Label layoutX="751.0" layoutY="205.0" text="Pet Address ID"/>
+            <Label layoutX="1050.0" layoutY="205.0" text="(Num)"/>
+            <TextField fx:id="updatePetAddressID" layoutX="855.0" layoutY="205.0"/>
+
+            <Label layoutX="767.0" layoutY="235.0" text="Pet Birthday"/>
+            <Label layoutX="1050.0" layoutY="235.0" text="(yyyy-MM-dd)"/>
+            <TextField fx:id="updatePetBirthdate" layoutX="855.0" layoutY="235.0"/>
+
+            <Label layoutX="780.0" layoutY="265.0" text="Pet Status"/>
+            <Label layoutX="1050.0" layoutY="265.0" text="(true-false)"/>
+            <TextField fx:id="updatePetStatus" layoutX="855.0" layoutY="265.0"/>
+
+            <Button fx:id="showPet" layoutX="176.0" layoutY="585.0" mnemonicParsing="false"
+                    onAction="#showPet" text="Show Pet"/>
+            <Button fx:id="updatePet" layoutX="167.0" layoutY="615.0" mnemonicParsing="false"
+                    onAction="#updatePet" text="Update Pet"/>
+            <Button fx:id="hidePet" layoutX="169.0" layoutY="645.0" mnemonicParsing="false"
+                    onAction="#hidePet" text="Clear Form"/>
+            <Button fx:id="newPet" layoutX="46.0" layoutY="585.0" mnemonicParsing="false"
+                    onAction="#newPet" text="Add Pet Record"/>
+            <Button fx:id="removePet" layoutX="46.0" layoutY="615.0" mnemonicParsing="false"
+                    onAction="#removePetRecord" text="Delete Pet Record"/>
+
+            <!-- Update Address -->
+            <Label layoutX="729.0" layoutY="350.0" text="Address ID"/>
+            <Label layoutX="1000.0" layoutY="350.0" text="(Num)"/>
+            <TextField fx:id="updateAddressID" layoutX="805.0" layoutY="350.0"/>
+
+            <Label layoutX="695.0" layoutY="380.0" text="Address Line One"/>
+            <Label layoutX="1000.0" layoutY="380.0" text="(Text)"/>
+            <TextField fx:id="updateAddressLineOne" layoutX="805.0" layoutY="380.0"/>
+
+            <Label layoutX="695.0" layoutY="410.0" text="Address Line Two"/>
+            <Label layoutX="1000.0" layoutY="410.0" text="(Text)"/>
+            <TextField fx:id="updateAddressLineTwo" layoutX="805.0" layoutY="410.0"/>
+
+            <Label layoutX="750.0" layoutY="440.0" text="City ID"/>
+            <Label layoutX="1000.0" layoutY="440.0" text="(Num)"/>
+            <TextField fx:id="updateCityID" layoutX="805.0" layoutY="440.0"/>
+
+            <Label layoutX="723.0" layoutY="470.0" text="Postal Code"/>
+            <Label layoutX="1000.0" layoutY="470.0" text="(Num)"/>
+            <TextField fx:id="updatePostalCode" layoutX="805.0" layoutY="470.0"/>
+
+            <Label layoutX="705.0" layoutY="500.0" text="Phone Number"/>
+            <Label layoutX="1000.0" layoutY="500.0" text="(xxx-xxx-xxxx)"/>
+            <TextField fx:id="updatePhone" layoutX="805.0" layoutY="500.0"/>
+
+            <Button fx:id="showAddress" layoutX="546.0" layoutY="590.0" mnemonicParsing="false"
+                    onAction="#showAddress" text="Show Address"/>
+            <Button fx:id="updateAddress" layoutX="537.0" layoutY="620.0" mnemonicParsing="false"
+                    onAction="#updateAddress" text="Update Address"/>
+            <Button fx:id="hideAddress" layoutX="564.0" layoutY="650.0" mnemonicParsing="false"
+                    onAction="#hideAddress" text="Clear Form"/>
+            <Button fx:id="newAddress" layoutX="430.0" layoutY="590.0" mnemonicParsing="false"
+                    onAction="#newAddress" text="New Address"/>
+            <Button fx:id="removeAddress" layoutX="430.0" layoutY="620.0" mnemonicParsing="false"
+                    onAction="#removePetAddress" text="Delete Address"/>
+        </AnchorPane>
+    </Tab>
+    <Tab onSelectionChanged="#reportTab" text="Reports">
+        <AnchorPane minHeight="0.0" minWidth="0.0">
+            <Label layoutX="29.0" layoutY="25.0" prefHeight="26.0" prefWidth="146.0" text="Reports">
+                <font>
+                    <Font size="25.0"/>
+                </font>
+            </Label>
+            <TabPane layoutX="15.0" layoutY="64.0" prefHeight="600.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+                <tabs>
+                    <Tab onSelectionChanged="#appointmentsByServiceType" text="Total Appointments by Service Type">
+                        <content>
+                            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                <children>
+                                    <AnchorPane prefHeight="363.0" prefWidth="848.0">
+                                        <children>
+                                            <TableView fx:id="totalServiceTypeAppointments" layoutX="74.0"
+                                                       layoutY="62.0" prefHeight="400.0" prefWidth="800.0">
+                                                <columns>
+                                                    <TableColumn fx:id="serviceTypeDescription" prefWidth="399.0"
+                                                                 text="Service Type"/>
+                                                    <TableColumn fx:id="serviceAmount" prefWidth="399.0"
+                                                                 text="Appointment Amount"/>
+                                                </columns>
+                                            </TableView>
+                                        </children>
+                                    </AnchorPane>
+                                </children>
+                            </AnchorPane>
+                        </content>
+                    </Tab>
+                    <Tab fx:id="groomerSales" onSelectionChanged="#groomerSales" text="Total Groomer Sales">
+                        <content>
+                            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                <children>
+                                    <AnchorPane prefHeight="363.0" prefWidth="848.0">
+                                        <children>
+                                            <TableView fx:id="totalGroomerSales" layoutX="74.0" layoutY="62.0"
+                                                       prefHeight="400.0" prefWidth="800.0">
+                                                <columns>
+                                                    <TableColumn fx:id="groomerName" prefWidth="399.0"
+                                                                 text="Groomer Name"/>
+                                                    <TableColumn fx:id="groomerTotalSales" prefWidth="399.0"
+                                                                 text="Total Sales: "/>
+                                                </columns>
+                                            </TableView>
+                                        </children>
+                                    </AnchorPane>
+                                </children>
+                            </AnchorPane>
+                        </content>
+                    </Tab>
+                    <Tab fx:id="appointmentTotalByCity" onSelectionChanged="#appointmentTotalByCity"
+                         text="Total Pet Appointments By City">
+                        <content>
+                            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                <children>
+                                    <AnchorPane prefHeight="363.0" prefWidth="848.0">
+                                        <children>
+                                            <TableView fx:id="totalAppointmentsByCity" layoutX="74.0" layoutY="62.0"
+                                                       prefHeight="400.0" prefWidth="800.0">
+                                                <columns>
+                                                    <TableColumn fx:id="cityName" prefWidth="399.0" text="City Name"/>
+                                                    <TableColumn fx:id="appointmentAmount" prefWidth="399.0"
+                                                                 text="Total Appointments: "/>
+                                                </columns>
+                                            </TableView>
+                                        </children>
+                                    </AnchorPane>
+                                </children>
+                            </AnchorPane>
+                        </content>
+                    </Tab>
+                </tabs>
+            </TabPane>
+        </AnchorPane>
+    </Tab>
+</TabPane>
